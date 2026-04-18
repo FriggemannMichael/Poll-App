@@ -2,6 +2,50 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
 
+## Git Workflow
+
+`main` should stay stable and remain the branch that is used for production-ready changes and later deployments.
+
+Use the repository like this:
+
+1. Create a feature branch from `main`.
+2. Implement and commit your changes on that branch.
+3. Open a pull request into `main`.
+4. Let GitHub Actions validate the branch before merging.
+
+Typical branch names:
+
+- `feature/create-poll`
+- `feature/auth`
+- `fix/header-layout`
+- `chore/github-actions`
+
+## Deployment
+
+`main` should be the only branch that deploys automatically.
+
+The repository contains a GitHub Actions workflow for FTP deployment after pushes to `main`.
+
+Configure these GitHub secrets before enabling production deployments:
+
+- `FTP_SERVER`
+- `FTP_USERNAME`
+- `FTP_PASSWORD`
+
+Optional GitHub variables:
+
+- `FTP_PORT` with default `21`
+- `FTP_PROTOCOL` with value `ftp` or `ftps`
+- `FTP_SERVER_DIR` with the remote target path, for example `/public_html/`
+
+Recommended GitHub setup for `main`:
+
+1. Require a pull request before merging.
+2. Require status checks to pass before merging.
+3. Select the `CI / build` check as required.
+4. Restrict direct pushes to `main`.
+5. Add an environment named `production` if you want deployment approvals or environment-scoped secrets.
+
 ## Development server
 
 To start a local development server, run:
