@@ -18,10 +18,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
@@ -42,3 +42,6 @@ jobs:
           port: ${{ vars.FTP_PORT || '21' }}
           server-dir: ${{ vars.FTP_SERVER_DIR || '/' }}
           local-dir: dist/pollApp/
+          log-level: ${{ vars.FTP_LOG_LEVEL || 'verbose' }}
+          timeout: ${{ vars.FTP_TIMEOUT || '60000' }}
+          security: ${{ vars.FTP_SECURITY || 'loose' }}
