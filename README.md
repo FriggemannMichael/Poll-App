@@ -2,6 +2,24 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
 
+## Git Workflow
+
+`main` should stay stable and remain the branch that is used for production-ready changes and later deployments.
+
+Use the repository like this:
+
+1. Create a feature branch from `main`.
+2. Implement and commit your changes on that branch.
+3. Open a pull request into `main`.
+4. Let GitHub Actions validate the branch before merging.
+
+Typical branch names:
+
+- `feature/create-poll`
+- `feature/auth`
+- `fix/header-layout`
+- `chore/github-actions`
+
 ## Development server
 
 To start a local development server, run:
